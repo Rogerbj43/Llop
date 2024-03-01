@@ -1,12 +1,20 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+    public static String[][] player=new String[12][4];
+
     public static void main(String[] args) {
 
        int menu=menu();
 
 
     }
+
+    /**
+     * Aquest és el mètode per al cas recursiu
+     * @return la opció del menú
+     */
     public static int menu(){
         Scanner input=new Scanner(System.in);
 
@@ -21,15 +29,33 @@ public class Main {
         switch (op) {
             case 1:
             case 2:
-            case 3:
+            case 3:op3();
             case 4:
                 break;
             default:
                 System.out.println("ERROR: Opció no vàlida!");
-                menu(); // Cas recursiu
+                menu();
                 break;
         }
         return op;
     }
+    public static void op3(){
+        Scanner input=new Scanner(System.in);
+        Random random=new Random();
+        int random1=0, random2=0, random3=0;
+        for (int i=0; i<12; i++){
+            System.out.println("Introdueix el nom del jugador "+i+": ");
+            player[i][0]=input.next();
+            player[i][1]="0";
+        }
 
+        do {
+            random1 = random.nextInt(12);
+            random2 = random.nextInt(12);
+            random3 = random.nextInt(12);
+        }while (random1!=random2 && random1!=random3 && random2!=random3);
+
+
+
+    }
 }
