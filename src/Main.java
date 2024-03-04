@@ -42,7 +42,7 @@ public class Main {
     public static void op3(){
         Scanner input=new Scanner(System.in);
         Random random=new Random();
-        int random1=0, random2=0, random3=0;
+        int random1=0, random2=0, random3=0, random4=0;
         for (int i=0; i<12; i++){
             System.out.println("Introdueix el nom del jugador "+i+": ");
             player[i][0]=input.next();
@@ -53,7 +53,16 @@ public class Main {
             random1 = random.nextInt(12);
             random2 = random.nextInt(12);
             random3 = random.nextInt(12);
-        }while (random1!=random2 && random1!=random3 && random2!=random3);
+        }while (random1==random2 || random1==random3 || random2==random3);
+
+        do{
+            random4 = random.nextInt(12);
+        }while (random4==random1 || random4==random2 || random4==random3);
+
+        for (int i=0; i<12; i++){
+            System.out.println("Començem per el jugador "+player[i][0]+", quan estiguis sol clica 's' per a continuar");
+            String s=input.next();
+        }
 
 
 
